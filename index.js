@@ -30,14 +30,14 @@ const {nextISSTimesForMyLocation} = require('./iss');
 
 
 //this function loops through all of the items and logs the next time the ISS will pass overhead
-const printPassTimes = function(passTimes){
+const printPassTimes = function(passTimes) {
   for (const pass of passTimes) {
     const datetime = new Date(0);
     datetime.setUTCSeconds(pass.risetime);
     const duration = pass.duration;
     console.log(`Next pass at ${datetime} for ${duration} seconds!`);
   }
-}
+};
 
 //this function runs the entire app
 nextISSTimesForMyLocation((error, passTimes) => {
@@ -45,5 +45,5 @@ nextISSTimesForMyLocation((error, passTimes) => {
     return console.log("It didn't work!", error);
   }
   // success, print out the deets!
-  printPassTimes(passTimes)
-})
+  printPassTimes(passTimes);
+});
